@@ -32,7 +32,7 @@ export default function Insert(){
       setUser(user);
     }
     checkUser();
-  },[]);
+  },[supabase.auth]);
 
   const handleRep1FileChange = (e) =>{
     const f = e.target.files[0];

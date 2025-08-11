@@ -4,20 +4,21 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { supabase } from "@/utils/supabase/client"; // 브라우저 싱글톤 클라이언트
+import { createClient } from "@/utils/supabase/client";
 
 export default function Home() {
   const [projects, setProjects] = useState([]);
   const [error, setError] = useState(null);
 
-  // 스토리지 공개 URL
   const getPublicURL = (path) => {
+    const supabase = createClient();
     const { data } = supabase.storage.from("portfolio").getPublicUrl(path);
     return data.publicUrl;
   };
 
   useEffect(() => {
     let cancelled = false;
+    const supabase = createClient();
 
     (async () => {
       const { data, error } = await supabase
@@ -34,28 +35,16 @@ export default function Home() {
     return () => {
       cancelled = true;
     };
-  }, []); // 초기 1회만 실행
+  }, []);
 
   if (error) return <div>데이터 조회 실패: {error}</div>;
 
   return (
     <div className="container latest_portfolio">
       <div className="row intro">
-        <div className="col-md-4">
-          <div className="contents shadow">
-            <h2 className="heading2">I&apos;m alikerock</h2>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <div className="contents shadow">
-            <h2 className="heading2">I create super awesome stuff</h2>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <div className="contents shadow">
-            <h2 className="heading2">I&apos;m available for freelance projects</h2>
-          </div>
-        </div>
+        <div className="col-md-4"><div className="contents shadow"><h2 className="heading2">I&apos;m alikerock</h2></div></div>
+        <div className="col-md-4"><div className="contents shadow"><h2 className="heading2">I create super awesome stuff</h2></div></div>
+        <div className="col-md-4"><div className="contents shadow"><h2 className="heading2">I&apos;m available for freelance projects</h2></div></div>
       </div>
 
       <div className="row list">
@@ -94,9 +83,7 @@ export default function Home() {
       </div>
 
       <p className="porfolio_readmore">
-        <a href="" className="primary-btn">
-          See my full portfolio
-        </a>
+        <a href="" className="primary-btn">See my full portfolio</a>
       </p>
     </div>
   );

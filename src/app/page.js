@@ -3,7 +3,11 @@ import { createClient } from '@/utils/supabase/client';
 
 export default async function Home() {
   const supabase = await createClient();
-  const {data:projects, error} = await supabase.from("portfolio").select();
+  const {data:projects, error} = await supabase
+    .from("portfolio")
+    .select()
+    .order('id', { ascending: false })
+    .limit(3);
 
   const getPublicURL = (path)=>{
     const { data } = supabase

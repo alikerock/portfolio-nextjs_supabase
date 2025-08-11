@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from 'next/link'
+import { withBase } from "@/lib/path";
 
 export const metadata = {
   title: "Contact - Minimal Portfolio",
@@ -19,9 +20,9 @@ export default function Contact(){
 					<a href="mailto:hello@adipurdila.com">hello@adipurdila.com</a>
 				</p>
 				<ul className="social_links">
-          <li><Link href=""><Image src="/images/twitter.png" width={32} height={32} alt="twitter"/></Link></li>
-          <li><Link href=""><Image src="/images/facebook.png" width={32} height={32} alt="facebook"/></Link></li>
-          <li><Link href=""><Image src="/images/dribble.png" width={32} height={32} alt="dribble"/></Link></li>
+          <li><Link href=""><Image src={withBase("/images/twitter.png")} width={32} height={32} alt="twitter"/></Link></li>
+          <li><Link href=""><Image src={withBase("/images/facebook.png")} width={32} height={32} alt="facebook"/></Link></li>
+          <li><Link href=""><Image src={withBase("/images/dribble.png")} width={32} height={32} alt="dribble"/></Link></li>
 				</ul>
 			</div>
 			<hr className="double"/>

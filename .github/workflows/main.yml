@@ -34,8 +34,10 @@ jobs:
       - name: Install deps
         run: npm ci
 
-      - name: Build
-        run: npm run build
+      - name: Build & Export
+        run: |
+            npm run build
+            npm run export
 
       - name: Export static site
         run: npm run export

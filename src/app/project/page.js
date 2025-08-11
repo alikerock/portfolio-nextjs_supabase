@@ -11,15 +11,12 @@ export default function ProjectPage() {
 
   useEffect(() => {
     if (!id) return;
+    const supabase = createClient();
     (async () => {
-      const { data } = await supabase
-        .from("portfolio")
-        .select("*")
-        .eq("id", id)
-        .single();
-      setData(data || null);
+      const { data } = await supabase.from("portfolio").select("*").eq("id", id).single();
+      setItem(data ?? null);
     })();
-  }, [id, supabase, setData]);
+  }, [id]);
 
   if (!id) return <p>id가 없습니다.</p>;
   if (!data) return <p>Loading…</p>;

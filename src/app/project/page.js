@@ -19,7 +19,7 @@ export default function ProjectPage() {
         .single();
       setData(data || null);
     })();
-  }, [id]);
+  }, [id, supabase, setData]);
 
   if (!id) return <p>id가 없습니다.</p>;
   if (!data) return <p>Loading…</p>;

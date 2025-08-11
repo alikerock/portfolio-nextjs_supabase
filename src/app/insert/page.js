@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation'
 
 export default function Insert(){
   const router = useRouter()
-  const supabase = createClient();
   const [formData, setFormData] = useState({
     title:'', 
     content:'', 
@@ -50,6 +49,7 @@ export default function Insert(){
 
   async function InsertData(e){
     e.preventDefault();
+    const supabase = createClient();
     /*
     let thumbnailPath = null;
     if(thumbfile){

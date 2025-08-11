@@ -1,16 +1,17 @@
-import Image from "next/image";
-import { createClient } from '@/utils/supabase/client';
+"use client";
+import { useEffect, useState } from "react";
+import { createClient } from "@/utils/supabase/client";
 
-export default async function ProjectDetail({data}){
-  const supabase = await createClient();
+export default function ProjectDetail({ data }) {
+  const [thumbUrl, setThumbUrl] = useState("");
 
-  const getPublicURL = (path)=>{
-    const { data } = supabase
-    .storage
-    .from('portfolio')
-    .getPublicUrl(path);
-    return data.publicUrl;
-  }  
+  useEffect(() => {
+    if (!data?.thumbnail) return;
+    const supabase = createClient();
+    const { data: pub } = supabase.storage.from("portfolio").getPublicUrl(data.thumbnail);
+    setThumbUrl(pub.publicUrl);
+  }, [data?.thumbnail]);
+  
   return(
     <div className="container">
       <div className="row">

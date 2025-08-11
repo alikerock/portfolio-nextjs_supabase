@@ -1,37 +1,41 @@
-import React from 'react';
-import { createClient } from '@/utils/supabase/client';
-import ProjectDetail from '@/component/ProjectDetail';
+// app/project/[id]/page.js  (CSR 버전)
+"use client";
 
-const supabase = createClient();
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import { createClient } from "@/utils/supabase/client"; // 브라우저 클라이언트
+import ProjectDetail from "@/component/ProjectDetail";
 
-async function getData(id){
-  const {data,error} = await supabase
-  .from("portfolio")
-  .select()
-  .eq('id', id)
-  .single();
-  if(error){
-    console.log(error);
-    return null;
-  }
-  return data;
-}
+export default function ProjectPage() {
+  const { id } = useParams();
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+  const supabase = createClient();
 
-export async function GenerateMetadata({params}){  
-  const { id } = await params
-  const data = await getData(id);
+  useEffect(() => {
+    if (!id) return;
+    let alive = true;
 
-  return {
-    title:`${data?.title || 'Project'}- Minimal Portfolio`,
-    description:  "welcome to my portfolio"
-  }
-}
+    (async () => {
+      const { data, error } = await supabase
+        .from("portfolio")
+        .select("*")
+        .eq("id", id)
+        .single();
 
-export default async function Project({params}){
-  const { id } = await params
-  const data = await getData(id);
+      if (!alive) return;
+      if (error) setError(error.message);
+      else setData(data);
+    })();
 
-  return(
-    <ProjectDetail data={data}/>
-  )
+    return () => {
+      alive = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
+
+  if (error) return <p style={{ color: "crimson" }}>Error: {error}</p>;
+  if (!data) return <p>Loading…</p>;
+
+  return <ProjectDetail data={data} />;
 }

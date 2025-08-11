@@ -28,7 +28,10 @@ env:
   # Next.js에서 사용될 Supabase 환경변수(빌드/런타임 노출용)
   NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
   NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
-  
+  # ↓ Pages 서브패스(예: /portfolio-nextjs_supabase)를 런타임에 전달
+  NEXT_PUBLIC_BASE_PATH: "/${{ github.event.repository.name }}"
+
+
 jobs:
   # Build job
   build:

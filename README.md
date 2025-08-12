@@ -55,7 +55,7 @@
 - **Design**: Figma
 
 ### 2.2 배포 URL
-- **Production**: https://portfolio-nextjs-supabase.vercel.app
+- **Production**: https://portfolio-nextjs-supabase-tau.vercel.app/
 
 ---
 

@@ -13,7 +13,59 @@
 - **관리 효율성**: 관리자 로그인 후 포트폴리오 항목 CRUD가 가능하도록 구성
 - **배포 경험**: Vercel을 통한 프로덕션 배포 및 CI/CD 경험
 
-### 1.2 주요 기능
+### 1.2 👥 팀원
+
+| 이름 | 역할 | 주요 담당 | GitHub | 연락 |
+| --- | --- | --- | --- | --- |
+| 김동주 | 팀장 · FE 리드 | 아키텍처/폴더링<br>CI/CD(Vercel·Actions)<br>Supabase 스키마·RLS 정책<br>성능 최적화·코드리뷰 | [@alikerock](https://github.com/alikerock) | (예) dj.kim@example.com |
+| 이가람 | FE · 제품기능 | 포트폴리오 목록/상세<br>검색·필터·페이지네이션<br>React Query/SWR 상태관리<br>접근성 개선(a11y) | [@garam-dev](https://github.com/garam-dev) | garam@example.com |
+| 박지우 | FE · UI/디자인 | Figma 디자인 시스템<br>반응형 레이아웃·컴포넌트<br>이미지 업로드/최적화<br>OG/SEO 메타 | [@jiwoo-park](https://github.com/jiwoo-park) | jiwoo@example.com |
+
+### 1.3 🗓️ 마일스톤
+
+#### 1주차 — 기획/설계
+- [ ] 요구사항·화면흐름 정의(Figma 슬라이드)
+- [ ] 데이터 모델/테이블·RLS 설계
+- [ ] 기본 라우팅/레이아웃/테마 결정
+
+#### 2주차 — 핵심 기능
+- [ ] 프로젝트 목록/상세 페이지
+- [ ] 이미지 업로드(Storage) + 썸네일
+- [ ] 관리자 로그인(Auth) + CRUD(등록/수정/삭제)
+
+#### 3주차 — 품질/운영
+- [ ] SEO/OG 태그 + sitemap/robots
+- [ ] 성능 최적화(next/image, 코드 스플리팅)
+- [ ] 접근성 점검(키보드 포커스/명도 대비)
+
+#### 4주차 — 테스트/배포/문서
+- [ ] E2E 5케이스(Cypress/Playwright)
+- [ ] GitHub Actions: 테스트 → 프리뷰 → 배포
+- [ ] README/시연자료(스크린샷·GIF) 정리
+
+gantt
+    title Milestones (예시)
+    dateFormat  YYYY-MM-DD
+    excludes    weekends
+
+    section 기획/설계
+    요구사항·IA 정리           :a1, 2025-08-18, 3d
+    Figma 와이어·디자인        :a2, after a1, 3d
+
+    section 구현(핵심)
+    Supabase 스키마·RLS        :b1, 2025-08-25, 3d
+    목록/상세·업로드           :b2, after b1, 6d
+    관리자 Auth + CRUD         :b3, after b2, 4d
+
+    section 품질
+    SEO/OG·성능·접근성         :c1, 2025-09-07, 3d
+    테스트(E2E)·에러관측       :c2, after c1, 3d
+
+    section 릴리스
+    CI/CD 구성·문서화·시연자료 :d1, 2025-09-12, 2d
+
+
+### 1.5 주요 기능
 
 #### 👤 사용자/관리자 관리
 - Supabase Auth를 이용한 이메일 기반 로그인
@@ -196,11 +248,11 @@ style C5 fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
 ```
 
 ## 7. 향후 개선 사항
- -프로젝트 검색/필터링 UI
- -이미지 업로드 시 썸네일 자동 생성
- -Contact 폼 → Edge Function 메일 발송
- -E2E 테스트(Cypress) 및 배포 자동화
- -Lighthouse 성능/SEO 90점 이상 달성
+ - 프로젝트 검색/필터링 UI
+ - 이미지 업로드 시 썸네일 자동 생성
+ - Contact 폼 → Edge Function 메일 발송
+ - E2E 테스트(Cypress) 및 배포 자동화
+ - Lighthouse 성능/SEO 90점 이상 달성
 
 ## 8. 실행 방법
 ### 1. 클론

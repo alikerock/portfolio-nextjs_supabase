@@ -91,3 +91,60 @@ sequenceDiagram
     FE->>+SB: DB Insert + 이미지 업로드(Storage)
     SB-->>FE: 성공 응답
     FE->>Admin: 목록 페이지로 리다이렉트
+
+## 5. 프로젝트 구조
+📦 portfolio-nextjs_supabase
+┣ 📂 public/                  # 정적 파일
+┣ 📂 src/
+┃ ┣ 📂 app/                   # Next.js App Router 구조
+┃ ┣ 📂 components/            # 재사용 컴포넌트
+┃ ┣ 📂 utils/                  # 유틸리티 함수
+┃ ┣ 📂 styles/                 # 전역/모듈 스타일
+┃ ┣ 📂 lib/                    # Supabase 클라이언트
+┃ ┗ 📜 next.config.js
+┣ 📜 package.json
+┣ 📜 README.md
+┗ 📜 .env.sample              # 환경변수 예시
+
+## 6. 아키텍처
+graph TD
+    A[Next.js Frontend] -->|SQL API / Auth / Storage| B[Supabase]
+    B -->|PostgreSQL| C[Database]
+    B -->|File Bucket| D[Storage]
+    A -->|Deploy| E[Vercel]
+    F[GitHub Actions] -->|CI/CD| E
+
+## 7. 향후 개선 사항
+ -프로젝트 검색/필터링 UI
+ -이미지 업로드 시 썸네일 자동 생성
+ -Contact 폼 → Edge Function 메일 발송
+ -E2E 테스트(Cypress) 및 배포 자동화
+ -Lighthouse 성능/SEO 90점 이상 달성
+
+## 8. 실행 방법
+# 1. 클론
+git clone https://github.com/alikerock/portfolio-nextjs_supabase.git
+cd portfolio-nextjs_supabase
+
+# 2. 패키지 설치
+npm install
+
+# 3. 환경변수 설정
+cp .env.example .env.local
+# Supabase URL, ANON KEY, Storage 버킷명 등 입력
+
+# 4. 로컬 실행
+npm run dev
+
+# 5. 프로덕션 빌드
+npm run build
+npm start
+
+## 9. 테스트 계정
+Email: admin@example.com
+Password: admin123
+
+## 10. 제작 후기
+이 프로젝트를 통해 Next.js App Router와 Supabase를 결합하여
+전체 CRUD 흐름과 배포까지 경험하였으며,
+실무에 가까운 BaaS 활용법, 권한 제어, 성능 최적화 과정을 학습하였습니다.

@@ -116,12 +116,79 @@ portfolio-nextjs_supabase/
 
 ## 6. 아키텍처
 ```mermaid
+%% ===== Extended Flowchart Template for README =====
+%% 사용법: 노드 ID(좌측 토큰)는 고유하게 유지하고, 대괄호/괄호 안 라벨만 바꿔 쓰면 됩니다.
 flowchart TD
-    A[Next.js Frontend] -->|SQL API / Auth / Storage| B[Supabase]
-    B -->|PostgreSQL| C[(Database)]
-    B -->|File Bucket| D[(Storage)]
-    A -->|Deploy| E[Vercel]
-    F[GitHub Actions] -->|CI/CD| E
+
+%% 1) 노드 모양 레전드(선택 사항)
+subgraph Legend[Legend: Node Shapes]
+  direction LR
+  L1[Process / Rect]:::muted
+  L2(Rounded):::muted
+  L3{Decision}:::muted
+  L4((Circle)):::muted
+  L5[[Subroutine]]:::muted
+  L6[/I/O Parallelogram/]:::muted
+  L7[(Database)]:::muted
+end
+
+%% 2) 레이어(서브그래프)
+subgraph Client[Client / Frontend]
+  direction TB
+  C0([Start]):::start
+  C1[Show Login Form]
+  C2[/User Inputs Email & Password/]
+  C3(Run Client Validation)
+  C4{Valid?}
+  C5[Show Validation Errors]
+  C6[Render Dashboard]
+end
+
+subgraph Edge[Edge Functions / API Gateway]
+  direction TB
+  E1[[Auth Service]]:::accent
+  E2[[Project Service]]:::accent
+end
+
+subgraph Backend[Supabase / DB / Storage]
+  direction TB
+  B1[(PostgreSQL DB)]:::db
+  B2[(Storage Bucket)]:::db
+end
+
+%% 3) 기본 흐름(엣지)
+C0 --> C1 --> C2 --> C3 --> C4
+C4 -- Yes --> E1
+C4 -- No  --> C5
+
+%% Auth 흐름
+E1 -->|Verify credentials| B1
+B1 -->|Token & Profile| E1
+E1 -->|Issue session| C6
+
+%% CRUD 흐름
+C6 -->|Create Project| E2
+E2 -->|INSERT row| B1
+C6 -.->|Upload image| B2
+E2 -->|OK / New ID| C6
+
+%% 4) 링크 스타일(필요시)
+%% linkStyle <index> stroke:#색상,stroke-width:2px,stroke-dasharray:5 3
+%% (index는 위에서 선언된 엣지 순서 기준)
+%% 예: linkStyle 2 stroke:#ef4444,stroke-width:2px,stroke-dasharray:5 3
+
+%% 5) 노드 클래스 스타일
+classDef start fill:#e0f2fe,stroke:#0284c7,color:#075985;
+classDef db fill:#fef9c3,stroke:#f59e0b,color:#92400e;
+classDef accent fill:#e9d5ff,stroke:#7c3aed,color:#4c1d95;
+classDef muted fill:#f1f5f9,stroke:#94a3b8,color:#475569;
+
+%% 핵심 경로 강조(원하는 노드에 클래스 적용)
+class C4,E1,B1,C6 accent
+
+%% 개별 노드 스타일(특정 노드만 별도 강조)
+style C5 fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
+
 ```
 
 ## 7. 향후 개선 사항

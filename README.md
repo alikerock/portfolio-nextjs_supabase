@@ -240,7 +240,7 @@ Password: admin123
 ### 11.1 미리보기
 <!-- /public/readme/ 폴더에 썸네일 PNG를 넣고 경로를 맞춘다 -->
 [![기획서 미리보기](./public/readme/figma-slides-thumb.png)](https://www.figma.com/file/XXXX "피그마 슬라이드로 이동")
-[![디자인 미리보기](./public/readme/figma-design-thumb.png)](https://www.figma.com/file/YYYY "피그마 디자인으로 이동")
+[![디자인 미리보기](./public/readme/figma-slides-thumb.png)](https://www.figma.com/file/YYYY "피그마 디자인으로 이동")
 
 ### 11.2 버전 메모
 - v1.0(2025-08-12): 핵심 화면/플로우 확정

@@ -230,3 +230,18 @@ Password: admin123
 이 프로젝트를 통해 Next.js App Router와 Supabase를 결합하여
 전체 CRUD 흐름과 배포까지 경험하였으며,
 실무에 가까운 BaaS 활용법, 권한 제어, 성능 최적화 과정을 학습하였습니다.
+
+## 11. 기획/디자인 문서
+- **기획서(피그마 슬라이드)**: 사용자 여정, 화면 흐름, 요구사항, 마일스톤 정리  
+  링크: https://www.figma.com/file/XXXX
+- **디자인 원본(피그마)**: 컴포넌트, 컬러/타이포 스케일, 반응형 레이아웃, 아이콘  
+  링크: https://www.figma.com/file/YYYY
+
+### 11.1 미리보기
+<!-- /public/readme/ 폴더에 썸네일 PNG를 넣고 경로를 맞춘다 -->
+[![기획서 미리보기](./public/readme/figma-slides-thumb.png)](https://www.figma.com/file/XXXX "피그마 슬라이드로 이동")
+[![디자인 미리보기](./public/readme/figma-design-thumb.png)](https://www.figma.com/file/YYYY "피그마 디자인으로 이동")
+
+### 11.2 버전 메모
+- v1.0(2025-08-12): 핵심 화면/플로우 확정
+- v1.1(2025-08-15): 모바일 브레이크포인트/컴포넌트 토큰 보강

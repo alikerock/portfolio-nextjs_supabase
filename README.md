@@ -153,8 +153,11 @@ npm run build
 npm start
 
 ## 9. 테스트 계정
+```
+https://portfolio-nextjs-supabase-tau.vercel.app/insert
 Email: admin@example.com
 Password: admin123
+```
 
 ## 10. 제작 후기
 이 프로젝트를 통해 Next.js App Router와 Supabase를 결합하여

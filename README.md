@@ -133,8 +133,10 @@ flowchart TD
 
 ## 8. 실행 방법
 ### 1. 클론
+```
 git clone https://github.com/alikerock/portfolio-nextjs_supabase.git
 cd portfolio-nextjs_supabase
+```
 
 ### 2. 패키지 설치
 npm install

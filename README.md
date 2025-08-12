@@ -43,6 +43,7 @@
 - [ ] GitHub Actions: 테스트 → 프리뷰 → 배포
 - [ ] README/시연자료(스크린샷·GIF) 정리
 
+```mermaid
 gantt
     title Milestones (예시)
     dateFormat  YYYY-MM-DD
@@ -63,7 +64,7 @@ gantt
 
     section 릴리스
     CI/CD 구성·문서화·시연자료 :d1, 2025-09-12, 2d
-
+```
 
 ### 1.5 주요 기능
 

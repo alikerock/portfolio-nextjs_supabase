@@ -94,7 +94,7 @@ sequenceDiagram
 ```
 
 ## 5. 프로젝트 구조
-
+```
 portfolio-nextjs_supabase/
 ├─ public/
 ├─ src/
@@ -111,7 +111,7 @@ portfolio-nextjs_supabase/
 ├─ next.config.mjs
 ├─ package.json
 └─ README.md
-
+```
 
 
 ## 6. 아키텍처
@@ -132,21 +132,21 @@ flowchart TD
  -Lighthouse 성능/SEO 90점 이상 달성
 
 ## 8. 실행 방법
-# 1. 클론
+### 1. 클론
 git clone https://github.com/alikerock/portfolio-nextjs_supabase.git
 cd portfolio-nextjs_supabase
 
-# 2. 패키지 설치
+### 2. 패키지 설치
 npm install
 
-# 3. 환경변수 설정
+### 3. 환경변수 설정
 cp .env.example .env.local
-# Supabase URL, ANON KEY, Storage 버킷명 등 입력
+### Supabase URL, ANON KEY, Storage 버킷명 등 입력
 
-# 4. 로컬 실행
+### 4. 로컬 실행
 npm run dev
 
-# 5. 프로덕션 빌드
+### 5. 프로덕션 빌드
 npm run build
 npm start
 

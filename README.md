@@ -91,6 +91,7 @@ sequenceDiagram
     FE->>+SB: DB Insert + 이미지 업로드(Storage)
     SB-->>FE: 성공 응답
     FE->>Admin: 목록 페이지로 리다이렉트
+```
 
 ## 5. 프로젝트 구조
 📦 portfolio-nextjs_supabase

@@ -94,26 +94,35 @@ sequenceDiagram
 ```
 
 ## 5. 프로젝트 구조
-📦 portfolio-nextjs_supabase
-┣ 📂 public/                  # 정적 파일
-┣ 📂 src/
-┃ ┣ 📂 app/                   # Next.js App Router 구조
-┃ ┣ 📂 components/            # 재사용 컴포넌트
-┃ ┣ 📂 utils/                  # 유틸리티 함수
-┃ ┣ 📂 styles/                 # 전역/모듈 스타일
-┃ ┣ 📂 lib/                    # Supabase 클라이언트
-┃ ┗ 📜 next.config.js
-┣ 📜 package.json
-┣ 📜 README.md
-┗ 📜 .env.sample              # 환경변수 예시
+
+portfolio-nextjs_supabase/
+├─ public/
+├─ src/
+│  ├─ app/                    # Next.js App Router
+│  │  ├─ layout.(js|tsx)
+│  │  ├─ page.(js|tsx)
+│  │  └─ ...                  # route segments
+│  ├─ components/             # 재사용 컴포넌트
+│  ├─ lib/                    # Supabase 클라이언트 등
+│  │  └─ supabase/client.(js|ts)
+│  ├─ styles/                 # 전역/모듈 스타일
+│  └─ utils/                  # 유틸 함수
+├─ .env.example               # 환경변수 예시
+├─ next.config.mjs
+├─ package.json
+└─ README.md
+
+
 
 ## 6. 아키텍처
-graph TD
+```mermaid
+flowchart TD
     A[Next.js Frontend] -->|SQL API / Auth / Storage| B[Supabase]
-    B -->|PostgreSQL| C[Database]
-    B -->|File Bucket| D[Storage]
+    B -->|PostgreSQL| C[(Database)]
+    B -->|File Bucket| D[(Storage)]
     A -->|Deploy| E[Vercel]
     F[GitHub Actions] -->|CI/CD| E
+```
 
 ## 7. 향후 개선 사항
  -프로젝트 검색/필터링 UI

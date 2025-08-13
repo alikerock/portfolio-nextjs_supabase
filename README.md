@@ -114,6 +114,13 @@ gantt
 ### 2.2 배포 URL
 - **Production**: https://portfolio-nextjs-supabase-tau.vercel.app/
 
+### 2.3 📚 개발 컨벤션 가이드
+
+프로젝트에서 사용하는 HTML, CSS, JavaScript 작성 규칙은 아래 문서를 참고하세요.
+
+- [HTML 컨벤션](docs/guide_html.md)
+- [CSS 컨벤션](docs/guide_css.md)
+- [JavaScript 컨벤션](docs/guide_js.md)
 ---
 
 ## 3. 라우팅 구조

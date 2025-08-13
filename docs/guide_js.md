@@ -8,9 +8,9 @@
 ## 2. 들여쓰기와 공백
 - 들여쓰기는 **스페이스 2칸**
 - 연산자 앞뒤, 콤마 뒤에 공백
-\`\`\`javascript
+```javascript
 const sum = a + b;
-\`\`\`
+```
 
 ## 3. 네이밍 규칙
 - 변수/함수: \`camelCase\`
@@ -20,20 +20,20 @@ const sum = a + b;
 ## 4. 함수 작성
 - 화살표 함수 사용 권장
 - 하나의 함수는 하나의 역할만 수행
-\`\`\`javascript
+```javascript
 const getUserName = (user) => user.name;
-\`\`\`
+```
 
 ## 5. 주석
 - 함수/모듈 상단에 JSDoc 주석 권장
-\`\`\`javascript
+```javascript
 /**
  * 두 수의 합을 반환한다.
  * @param {number} a
  * @param {number} b
  * @returns {number}
  */
-\`\`\`
+```
 
 ---
 *마지막 수정: YYYY-MM-DD*

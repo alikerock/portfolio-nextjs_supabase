@@ -1,4 +1,4 @@
-# Minimal Portfolio - Next.js + Supabase
+# Minimal Portfolio(3차 프로젝트)
 - 과정명: 프로젝트기반 프론트엔드 개발자 양성
 - 기간: 2025/03/24 ~ 2025/09/24
 - 3차 프로젝트: 2025/08/27 ~ 2025/09/19

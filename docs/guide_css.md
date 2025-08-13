@@ -17,7 +17,7 @@
 ```
 
 ## 3. 네이밍 규칙
-- RSCSS (Reasonable System for CSS) (\`.block__element--modifier\`)
+#### RSCSS (Reasonable System for CSS) (\`.block__element--modifier\`)
 - 형식: .component, .component.is-state, .component__part, .component--variant
 - 예: card, card__title, card--featured, card.is-loading
 - “상태(state)·부분(part)·변형(variant)”를 명확히 구분

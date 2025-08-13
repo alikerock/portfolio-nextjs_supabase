@@ -6,7 +6,7 @@
 ## 🔗 빠른 링크
 - 📑 기획서(피그마 슬라이드): https://www.figma.com/file/XXXX
 - 🎨 디자인 원본(피그마): https://www.figma.com/file/YYYY
-
+- <a href="https://ezwebpub.com" target="_blank" rel="noopener noreferrer">ezweb</a>
 ## 1. 프로젝트 개요
 
 ### 1.1 목표

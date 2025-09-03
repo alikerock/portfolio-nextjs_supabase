@@ -124,7 +124,11 @@ export default function Insert(){
       router.refresh();//로그인후 새로고침
     }
   }
-
+async function signInWithKakao() {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: 'kakao',
+  })
+}
   //로그인 전 로그인 폼
   if(!user){
     return(
@@ -139,6 +143,7 @@ export default function Insert(){
         </div>
         <button className='btn btn-primary'>로그인</button>    
       </form>
+      <button onClick={signInWithKakao}>카카오 로그인</button>
     </div>
     )
   }
